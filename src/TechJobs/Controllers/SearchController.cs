@@ -37,7 +37,7 @@ namespace TechJobs.Controllers
                 List<Dictionary<string, string>> items = JobData.FindByColumnAndValue(searchType, searchTerm);
                 ViewBag.title = "Searched Jobs"; //update to use the search type and term
                 ViewBag.columns = ListController.columnChoices;
-                ViewBag.jobs = items; //ViewBag.items = items;
+                ViewBag.items = items; //ViewBag.jobs = items;
                 return View("Index");
                 //After looking up the search results via the JobData class, you'll need to pass them into the 
                 //Views/Search/Index.cshtml view. Note that this is not the default view for this action.
