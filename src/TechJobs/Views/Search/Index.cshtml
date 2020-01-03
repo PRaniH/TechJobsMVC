@@ -29,45 +29,24 @@
 
 @if (ViewBag.jobs != null)
 {
+
     <h3>@ViewBag.jobs.Count Result(s)</h3>
 
-    <!--Below copied and modified from List as temporary placeholder-->
-
-    <table>
-    <!--@for (int i = 0; i < ViewBag.items.Count; i++)
-    {
-        <a asp-controller="List" asp-action="Values" asp-route-column="@ViewBag.Key">@ViewBag.Value</a>
-
-    }-->
-
-
-    @foreach (Dictionary<string, string> item in ViewBag.jobs)
-    {
-        <!--Here maybe try to use each column to display the associated value-->
-        <!--@foreach(KeyValuePair<string,string> column in ViewBag.)-->
-            <!--End of what I was working on-->
-    <a asp-controller="List" asp-action="Values" asp-route-column="@ViewBag.jobs.Key">@ViewBag.jobs.Value</a>
-
-    <!--Console.WriteLine(" {0}: {1}", item.Key, item.Value);-->
-    }
-    
-    <!--@for (int i = 0; i < ViewBag.items.Count; i++) 
-    { 
-        <tr class="@( i % 2 == 0 ? " even" : "odd" ) ">
-                <td><a asp-controller="List" asp-action="Jobs" asp-route-column="@ViewBag.column" asp-route-value="@ViewBag.items[i]">@ViewBag.items[i]</a></td>
-                <td> </td>
-            </tr>
-
-    }
-
-    @foreach (KeyValuePair<string, string> column in ViewBag.columns)
-    {
-                <li>
-                    <a asp-controller="List" asp-action="Values" asp-route-column="@column.Key">@column.Value</a>
-                </li>
-    }-->
-    </table>
-
-
     // TODO #2 - Loop over jobs dictionary and display all job fields
+
+<table>
+    @foreach (Dictionary<string, string> job in ViewBag.jobs) //Go through each item (Dictionary) in the list ViewBag.jobs
+    {
+        <tr>
+        @foreach (KeyValuePair<string, string> item in job)
+        {
+        <td>@item.Key</td> //First column - key or column header
+        <td>@item.Value</td>       //Second column - value
+        }
+
+        </tr>
+    }
+</table>
+
+
 }
