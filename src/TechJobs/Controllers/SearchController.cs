@@ -23,7 +23,7 @@ namespace TechJobs.Controllers
 
                 //Use FindByValue passing searchTerm and store the values in the list
                 List<Dictionary<string, string>> jobs = JobData.FindByValue(searchTerm);
-                ViewBag.title = "Searched Jobs"; //update to use the search type and term
+                ViewBag.title = "Searched Jobs"; 
                 ViewBag.columns = ListController.columnChoices;
                 ViewBag.jobs = jobs;
                 return View("Index");
@@ -35,10 +35,9 @@ namespace TechJobs.Controllers
             {
                 //Use the searchTerm and the searchType and use the FindByColumnandValue method and save that to the list
                 List<Dictionary<string, string>> items = JobData.FindByColumnAndValue(searchType, searchTerm);
-                ViewBag.title = "Searched Jobs"; //update to use the search type and term
+                ViewBag.title = "Searched Jobs"; 
                 ViewBag.columns = ListController.columnChoices;
-                ViewBag.jobs = items; //Is this needed?
-                ViewBag.items = items; 
+                ViewBag.jobs = items;
                 return View("Index");
                 //After looking up the search results via the JobData class, you'll need to pass them into the 
                 //Views/Search/Index.cshtml view. Note that this is not the default view for this action.
