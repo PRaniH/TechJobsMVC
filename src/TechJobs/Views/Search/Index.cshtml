@@ -34,19 +34,18 @@
 
     // TODO #2 - Loop over jobs dictionary and display all job fields
 
-<table>
     @foreach (Dictionary<string, string> job in ViewBag.jobs) //Go through each item (Dictionary) in the list ViewBag.jobs
     {
-        <tr>
+    <table class="job-listing">
         @foreach (KeyValuePair<string, string> item in job)
         {
-        <td>@item.Key</td> //First column - key or column header
-        <td>@item.Value</td>       //Second column - value
+        <tr>
+            <td>@item.Key</td>
+            <td>@item.Value</td>
+        </tr>  
         }
-
-        </tr>
+    </table>
+    <p> </p>
     }
-</table>
-
 
 }
